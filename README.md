@@ -5,6 +5,8 @@
     Banking_ChatBot is an intelligent chatbot designed to assist with common banking tasks such as creating accounts, transferring funds, withdrawing money, and checking account balances. This project utilizes Amazon Lex for natural language understanding, AWS Lambda for executing business logic, and DynamoDB for data storage.
 </p>
 
+<img src="ChatBot.jpg" alt="Architectural Diagram of Banking_ChatBot" style="max-width:100%; height:auto;">
+
 <h2>Features</h2>
 <ul>
     <li><strong>Create Account</strong>: Allows users to create new banking accounts seamlessly.</li>
