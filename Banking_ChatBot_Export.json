@@ -1,0 +1,296 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0",
+    "importType": "LEX",
+    "importFormat": "JSON"
+  },
+  "resource": {
+    "name": "Banking_ChatBot",
+    "version": "1",
+    "intents": [
+      {
+        "name": "FundTransfer",
+        "version": "3",
+        "fulfillmentActivity": {
+          "codeHook": {
+            "uri": "arn:aws:lambda:ap-southeast-1:294792730735:function:fund-tranfer",
+            "messageVersion": "1.0"
+          },
+          "type": "CodeHook"
+        },
+        "sampleUtterances": [
+          "Transfer funds",
+          "Funds Tranfer"
+        ],
+        "slots": [
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.NUMBER",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Enter amount to tranfer."
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 7,
+            "name": "Amount"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.NUMBER",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Please enter receiver account number."
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 6,
+            "name": "Receiveracc"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.NUMBER",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Please enter your account number."
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 5,
+            "name": "Senderacc"
+          }
+        ]
+      },
+      {
+        "name": "Random",
+        "version": "1",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "PlainText",
+              "content": "Unknown Command"
+            }
+          ]
+        }
+      },
+      {
+        "name": "AccountBalanceEnquiry",
+        "version": "1",
+        "fulfillmentActivity": {
+          "codeHook": {
+            "uri": "arn:aws:lambda:ap-southeast-1:294792730735:function:BalanceEnquiryfunction",
+            "messageVersion": "1.0"
+          },
+          "type": "CodeHook"
+        },
+        "sampleUtterances": [
+          "Balance",
+          "Account Balance",
+          "What's my account balance?",
+          "Show me my balance.",
+          "How much money do I have in my account?"
+        ],
+        "slots": [
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.NUMBER",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Please enter your account number."
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 1,
+            "name": "AccountNumber"
+          }
+        ]
+      },
+      {
+        "name": "CreateAccount",
+        "version": "1",
+        "fulfillmentActivity": {
+          "codeHook": {
+            "uri": "arn:aws:lambda:ap-southeast-1:294792730735:function:create_account_bank",
+            "messageVersion": "1.0"
+          },
+          "type": "CodeHook"
+        },
+        "sampleUtterances": [
+          "Please create account",
+          "Create account",
+          "create"
+        ],
+        "slots": [
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.NUMBER",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Account number will be generated randomly."
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 4,
+            "name": "AccountNumber"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.PhoneNumber",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Please enter your contact number."
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 3,
+            "name": "ContactNumber"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.NUMBER",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Please enter the amount you want to credit."
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 2,
+            "name": "CreditAmount"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.FirstName",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Please enter your name."
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 1,
+            "name": "Name"
+          }
+        ]
+      },
+      {
+        "name": "Withdraw",
+        "version": "1",
+        "fulfillmentActivity": {
+          "codeHook": {
+            "uri": "arn:aws:lambda:ap-southeast-1:294792730735:function:withdraw",
+            "messageVersion": "1.0"
+          },
+          "type": "CodeHook"
+        },
+        "sampleUtterances": [
+          "Take out cash",
+          "withdraw"
+        ],
+        "slots": [
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.NUMBER",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Please enter your account number."
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 1,
+            "name": "AccountNumber"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.NUMBER",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Please enter amount to withdraw."
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 2,
+            "name": "Withdrawamt"
+          }
+        ]
+      }
+    ],
+    "voiceId": "0",
+    "childDirected": false,
+    "locale": "en-IN",
+    "idleSessionTTLInSeconds": 300,
+    "clarificationPrompt": {
+      "messages": [
+        {
+          "contentType": "PlainText",
+          "content": "Sorry, can you please repeat that?"
+        }
+      ],
+      "maxAttempts": 5
+    },
+    "abortStatement": {
+      "messages": [
+        {
+          "contentType": "PlainText",
+          "content": "Sorry, I could not understand. Goodbye."
+        }
+      ]
+    },
+    "detectSentiment": false,
+    "enableModelImprovements": true
+  }
+}
