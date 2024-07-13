@@ -25,7 +25,6 @@
 <ul>
     <li>An AWS account</li>
     <li>AWS CLI installed and configured</li>
-    <li>Node.js and npm installed</li>
     <li>Python 3.x installed</li>
 </ul>
 <h3>Setup</h3>
@@ -59,17 +58,17 @@
             </li>
         </ul>
     </li>
+     <li>Set up DynamoDB tables:
+        <ul>
+            <li>Create a table named <strong>customerdetails</strong> with <strong>accountnumber</strong> as the primary key (String type).</li>
+            <li>Update the table name in all Lambda functions if necessary.</li>
+        </ul>
+    </li>
     <li>Create and configure Amazon Lex bot:
         <ul>
             <li>Navigate to the Amazon Lex console.</li>
             <li>Create a new bot and import the intents from the provided <code>Banking_ChatBot_Export.json</code> file.</li>
             <li>Link the bot with the corresponding Lambda functions.</li>
-        </ul>
-    </li>
-    <li>Set up DynamoDB tables:
-        <ul>
-            <li>Create a table named <strong>customerdetails</strong> with <strong>accountnumber</strong> as the primary key (String type).</li>
-            <li>Update the table name in all Lambda functions if necessary.</li>
         </ul>
     </li>
 </ol>
