@@ -66,18 +66,34 @@
         </li>
         <li>Set up DynamoDB tables:
             <ul>
-                <li>Create a table named <strong>customerdetails</strong> with <strong>accountnumber</strong> as the primary key (String type).</li>
+                <li>Create a table named <code>customerdetails</code> with <code>accountnumber</code> as the primary key (String type).</li>
                 <li>Update the table name in all Lambda functions if necessary.</li>
             </ul>
         </li>
-        <li>Create and configure Amazon Lex bot:
-            <ul>
-                <li>Navigate to the Amazon Lex console.</li>
-                <li>Create a new bot and import the intents from the provided <code>Banking_ChatBot_Export.json</code> file.</li>
-                <li>Link the bot with the corresponding Lambda functions.</li>
-            </ul>
-        </li>
         <li>Deploy the Terraform configuration:
+            <h2 id="terraform-installation">Terraform Installation</h2>
+                <h3>Installing Terraform</h3>
+                <ol>
+                    <li>Download the appropriate Terraform binary for your operating system from the <a href="https://www.terraform.io/downloads.html">Terraform website</a>.</li>
+                    <li>Extract the binary from the downloaded archive.</li>
+                    <li>Move the extracted binary to a directory included in your system's PATH (e.g., <code>/usr/local/bin</code> on macOS/Linux or <code>C:\Program Files\Terraform</code> on Windows).</li>
+                    <li>Verify the installation by running:
+                        <pre><code>terraform --version</code></pre>
+                    </li>
+                </ol>
+                <h3>Configuring AWS CLI</h3>
+                <ol>
+                    <li>Install AWS CLI by following the instructions on the <a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html">AWS CLI installation guide</a>.</li>
+                    <li>Configure AWS CLI with your credentials:
+                        <pre><code>aws configure</code></pre>
+                        <ul>
+                            <li>Enter your AWS Access Key ID.</li>
+                            <li>Enter your AWS Secret Access Key.</li>
+                            <li>Select the default region name (e.g., <code>us-east-1</code>).</li>
+                            <li>Select the default output format (e.g., <code>json</code>).</li>
+                        </ul>
+                    </li>
+                </ol>
             <ul>
                 <li>Ensure you have Terraform installed. Follow the installation instructions in the <a href="#terraform-installation">Terraform Installation</a> section.</li>
                 <li>Initialize Terraform:
@@ -111,28 +127,5 @@
     <p>
         For simplicity, each banking task is handled by a separate Lambda function. However, it is possible to combine these into a single function if preferred.
     </p>
-    <h2 id="terraform-installation">Terraform Installation</h2>
-    <h3>Installing Terraform</h3>
-    <ol>
-        <li>Download the appropriate Terraform binary for your operating system from the <a href="https://www.terraform.io/downloads.html">Terraform website</a>.</li>
-        <li>Extract the binary from the downloaded archive.</li>
-        <li>Move the extracted binary to a directory included in your system's PATH (e.g., <code>/usr/local/bin</code> on macOS/Linux or <code>C:\Program Files\Terraform</code> on Windows).</li>
-        <li>Verify the installation by running:
-            <pre><code>terraform --version</code></pre>
-        </li>
-    </ol>
-    <h3>Configuring AWS CLI</h3>
-    <ol>
-        <li>Install AWS CLI by following the instructions on the <a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html">AWS CLI installation guide</a>.</li>
-        <li>Configure AWS CLI with your credentials:
-            <pre><code>aws configure</code></pre>
-            <ul>
-                <li>Enter your AWS Access Key ID.</li>
-                <li>Enter your AWS Secret Access Key.</li>
-                <li>Select the default region name (e.g., <code>us-east-1</code>).</li>
-                <li>Select the default output format (e.g., <code>json</code>).</li>
-            </ul>
-        </li>
-    </ol>
 </body>
 </html>
