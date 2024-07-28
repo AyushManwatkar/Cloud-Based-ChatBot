@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banking_ChatBot README</title>
 </head>
 <body>
     <h1>Banking_ChatBot</h1>
@@ -26,6 +25,7 @@
         <li><strong>Amazon Lex</strong>: For building the conversational interface of the chatbot.</li>
         <li><strong>AWS Lambda</strong>: To handle backend logic and integrations.</li>
         <li><strong>DynamoDB</strong>: To store user data and transaction records.</li>
+        <li><strong>Terraform</strong>: For Infrastructure as Code to provision AWS resources.</li>
     </ul>
     <h2>Getting Started</h2>
     <p>
