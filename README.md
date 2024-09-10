@@ -47,28 +47,10 @@
             </ul>
         </li>
         <li>Clone the repository:
-            <pre><code>git clone https://github.com/yourusername/Banking_ChatBot.git</code></pre>
+            <pre><code>git clone https://github.com/AyushManwatkar/Cloud-Based-ChatBot.git</code></pre>
         </li>
         <li>Navigate to the project directory:
-            <pre><code>cd Banking_ChatBot</code></pre>
-        </li>
-        <li>Deploy AWS Lambda functions:
-            <ul>
-                <li>Upload the Lambda function ZIP files:
-                    <pre><code>aws lambda create-function --function-name create_account --zip-file fileb://zip_files/create_account.zip --handler create_account.lambda_handler --runtime python3.8 --role arn:aws:iam::your-account-id:role/your-lambda-role</code></pre>
-                    <pre><code>aws lambda create-function --function-name fund_transfer --zip-file fileb://zip_files/fund_transfer.zip --handler fund_transfer.lambda_handler --runtime python3.8 --role arn:aws:iam::your-account-id:role/your-lambda-role</code></pre>
-                    <pre><code>aws lambda create-function --function-name withdraw --zip-file fileb://zip_files/withdraw.zip --handler withdraw.lambda_handler --runtime python3.8 --role arn:aws:iam::your-account-id:role/your-lambda-role</code></pre>
-                    <pre><code>aws lambda create-function --function-name balance_enquiry --zip-file fileb://zip_files/balance_enquiry.zip --handler balance_enquiry.lambda_handler --runtime python3.8 --role arn:aws:iam::your-account-id:role/your-lambda-role</code></pre>
-                    <pre><code>aws lambda create-function --function-name delete_account --zip-file fileb://zip_files/delete_account.zip --handler delete_account.lambda_handler --runtime python3.8 --role arn:aws:iam::your-account-id:role/your-lambda-role</code></pre>
-                    <pre><code>aws lambda create-function --function-name last_transaction --zip-file fileb://zip_files/last_transaction.zip --handler last_transaction.lambda_handler --runtime python3.8 --role arn:aws:iam::your-account-id:role/your-lambda-role</code></pre>
-                </li>
-            </ul>
-        </li>
-        <li>Set up DynamoDB tables:
-            <ul>
-                <li>Create a table named <code>customerdetails</code> with <code>accountnumber</code> as the primary key (String type).</li>
-                <li>Update the table name in all Lambda functions if necessary.</li>
-            </ul>
+            <pre><code>cd Cloud-Based-ChatBot</code></pre>
         </li>
         <li>Deploy the Terraform configuration:
             <h2 id="terraform-installation">Terraform Installation</h2>
